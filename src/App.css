@@ -1,0 +1,22 @@
+/* App.css */
+
+.app-wrapper {
+    padding: 100px 30px;
+    text-align: center;
+  }
+  
+  /* Responsivo para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .app-wrapper {
+      padding: 60px 20px;
+    }
+  
+    .app-wrapper h1 {
+      font-size: 1.6rem;
+    }
+  
+    .app-wrapper p {
+      font-size: 1rem;
+    }
+  }
+  

@@ -1,0 +1,188 @@
+{
+    "Mujer": {
+        "Nike": [
+            { "name": "Air Max 90 Rosa", "slug": "air-max-90-rosa" },
+            { "name": "Court Vision Low", "slug": "court-vision-low" },
+            { "name": "Air Force 1 Shadow", "slug": "air-force-1-shadow" },
+            { "name": "Blazer Mid '77", "slug": "blazer-mid-77" },
+            { "name": "React Escape", "slug": "react-escape" },
+            { "name": "Revolution 6", "slug": "revolution-6" },
+            { "name": "Air Zoom Pegasus", "slug": "air-zoom-pegasus" },
+            { "name": "Free RN 5.0", "slug": "free-rn-5-0" },
+            { "name": "Flex Experience", "slug": "flex-experience" },
+            { "name": "Downshifter 12", "slug": "downshifter-12" }
+        ],
+        "Puma": [
+            { "name": "Carina Street", "slug": "carina-street" },
+            { "name": "Cali Dream", "slug": "cali-dream" },
+            { "name": "X-Ray 2", "slug": "xray-2" },
+            { "name": "RS-X", "slug": "rs-x" },
+            { "name": "Flyer Runner", "slug": "flyer-runner" },
+            { "name": "Anzarun Lite", "slug": "anzarun-lite" },
+            { "name": "Softride Rift", "slug": "softride-rift" },
+            { "name": "Graviton", "slug": "graviton" },
+            { "name": "Jada", "slug": "jada" },
+            { "name": "R78", "slug": "r78" }
+        ],
+        "Reebok": [
+            { "name": "Classic Leather", "slug": "classic-leather" },
+            { "name": "Nano X", "slug": "nano-x" },
+            { "name": "Zig Kinetica", "slug": "zig-kinetica" },
+            { "name": "Floatride", "slug": "floatride" },
+            { "name": "Flexagon", "slug": "flexagon" },
+            { "name": "Fusion 2.0", "slug": "fusion-2" },
+            { "name": "Lite 3", "slug": "lite-3" },
+            { "name": "Classic Nylon", "slug": "classic-nylon" },
+            { "name": "Royal", "slug": "royal" },
+            { "name": "Club C", "slug": "club-c" }
+        ],
+        "Adidas": [
+            { "name": "Gazelle Bold", "slug": "gazelle-bold" },
+            { "name": "Forum Low", "slug": "forum-low" },
+            { "name": "Superstar Bold", "slug": "superstar-bold" },
+            { "name": "Nizza Platform", "slug": "nizza-platform" },
+            { "name": "Ultraboost DNA", "slug": "ultraboost-dna" },
+            { "name": "Falcon W", "slug": "falcon-w" },
+            { "name": "Sambarose", "slug": "sambarose" },
+            { "name": "ZX 2K Boost", "slug": "zx-2k-boost" },
+            { "name": "Ozelia", "slug": "ozelia" },
+            { "name": "Sleek W", "slug": "sleek-w" }
+        ],
+        "Converse": [
+            { "name": "Run Star Hike", "slug": "run-star-hike" },
+            { "name": "Chuck Taylor Lift", "slug": "chuck-lift" },
+            { "name": "Chuck 70 Canvas", "slug": "chuck-70-canvas" },
+            { "name": "All Star Move", "slug": "all-star-move" },
+            { "name": "Platform Layer", "slug": "platform-layer" },
+            { "name": "CX Explore", "slug": "cx-explore" },
+            { "name": "Chuck Taylor All Star", "slug": "chuck-all-star" },
+            { "name": "Lift High Top", "slug": "lift-high-top" },
+            { "name": "Shoreline Slip", "slug": "shoreline-slip" },
+            { "name": "Lugged Leather", "slug": "lugged-leather" }
+        ]
+    },
+    "Hombre": {
+        "Nike": [
+            { "name": "Air Force 1", "slug": "air-force-1" },
+            { "name": "Air Max Plus", "slug": "air-max-plus" },
+            { "name": "React Infinity Run", "slug": "react-infinity-run" },
+            { "name": "Zoom Fly 5", "slug": "zoom-fly-5" },
+            { "name": "Flex Run 2022", "slug": "flex-run-2022" },
+            { "name": "Downshifter 12", "slug": "downshifter-12-men" },
+            { "name": "Renew Ride 3", "slug": "renew-ride-3" },
+            { "name": "Winflo 9", "slug": "winflo-9" },
+            { "name": "Free Run 5.0", "slug": "free-run-5" },
+            { "name": "Pegasus Trail 4", "slug": "pegasus-trail-4" }
+        ],
+        "Adidas": [
+            { "name": "Ultraboost 22", "slug": "ultraboost-22" },
+            { "name": "NMD R1", "slug": "nmd-r1" },
+            { "name": "ZX 750", "slug": "zx-750" },
+            { "name": "Superstar", "slug": "superstar" },
+            { "name": "Gazelle", "slug": "gazelle" },
+            { "name": "Runfalcon", "slug": "runfalcon" },
+            { "name": "Terrex AX3", "slug": "terrex-ax3" },
+            { "name": "Lite Racer", "slug": "lite-racer" },
+            { "name": "Alphabounce", "slug": "alphabounce" },
+            { "name": "Response", "slug": "response" }
+        ],
+        "Jordan": [
+            { "name": "Air Jordan 1 Mid", "slug": "jordan-1-mid" },
+            { "name": "Max Aura", "slug": "jordan-max-aura" },
+            { "name": "Stadium 90", "slug": "stadium-90" },
+            { "name": "Luka 1", "slug": "luka-1" },
+            { "name": "Stay Loyal", "slug": "stay-loyal" },
+            { "name": "One Take", "slug": "one-take" },
+            { "name": "Air NFH", "slug": "air-nfh" },
+            { "name": "Delta 3", "slug": "delta-3" },
+            { "name": "Access", "slug": "access" },
+            { "name": "Westbrook One", "slug": "westbrook-one" }
+        ],
+        "Under Armour": [
+            { "name": "Charged Rogue", "slug": "charged-rogue" },
+            { "name": "HOVR Sonic", "slug": "hovr-sonic" },
+            { "name": "Assert 9", "slug": "assert-9" },
+            { "name": "Micro G Pursuit", "slug": "micro-g-pursuit" },
+            { "name": "Charged Bandit", "slug": "charged-bandit" },
+            { "name": "Surge 3", "slug": "surge-3" },
+            { "name": "HOVR Rise", "slug": "hovr-rise" },
+            { "name": "TriBase Reign", "slug": "tribase-reign" },
+            { "name": "Ripple 2.0", "slug": "ripple-2" },
+            { "name": "Charged Vantage", "slug": "charged-vantage" }
+        ],
+        "New Balance": [
+            { "name": "574 Core", "slug": "574-core" },
+            { "name": "Fresh Foam Roav", "slug": "fresh-foam-roav" },
+            { "name": "997H", "slug": "997h" },
+            { "name": "880v12", "slug": "880v12" },
+            { "name": "FuelCell Propel", "slug": "fuelcell-propel" },
+            { "name": "Fresh Foam X", "slug": "fresh-foam-x" },
+            { "name": "Nitrel v4", "slug": "nitrel-v4" },
+            { "name": "411v2", "slug": "411v2" },
+            { "name": "Drift", "slug": "drift" },
+            { "name": "Roav Trail", "slug": "roav-trail" }
+        ]
+    },
+    "Ofertas": {
+        "Vans": [
+            { "name": "Old Skool", "slug": "old-skool" },
+            { "name": "Sk8-Hi", "slug": "sk8-hi" },
+            { "name": "Authentic", "slug": "authentic" },
+            { "name": "Era", "slug": "era" },
+            { "name": "ComfyCush", "slug": "comfycush" },
+            { "name": "UltraRange", "slug": "ultrarange" },
+            { "name": "Slip-On", "slug": "slip-on" },
+            { "name": "Ward", "slug": "ward" },
+            { "name": "Filmore", "slug": "filmore" },
+            { "name": "Kyle Walker", "slug": "kyle-walker" }
+        ],
+        "Reebok": [
+            { "name": "Classic Leather", "slug": "classic-leather" },
+            { "name": "Nano X", "slug": "nano-x" },
+            { "name": "Zig Kinetica", "slug": "zig-kinetica" },
+            { "name": "Floatride", "slug": "floatride" },
+            { "name": "Flexagon", "slug": "flexagon" },
+            { "name": "Fusion 2.0", "slug": "fusion-2" },
+            { "name": "Lite 3", "slug": "lite-3" },
+            { "name": "Classic Nylon", "slug": "classic-nylon" },
+            { "name": "Royal", "slug": "royal" },
+            { "name": "Club C", "slug": "club-c" }
+        ],
+        "Fila": [
+            { "name": "Disruptor II", "slug": "disruptor-ii" },
+            { "name": "Ray Tracer", "slug": "ray-tracer" },
+            { "name": "Renno", "slug": "renno" },
+            { "name": "Original Fitness", "slug": "original-fitness" },
+            { "name": "Mindblower", "slug": "mindblower" },
+            { "name": "Axilus 2 Energized", "slug": "axilus-2" },
+            { "name": "MB", "slug": "mb" },
+            { "name": "F-13", "slug": "f-13" },
+            { "name": "Trailblazer", "slug": "trailblazer" },
+            { "name": "Overpass", "slug": "overpass" }
+        ],
+        "Asics": [
+            { "name": "Gel-Quantum 180", "slug": "gel-quantum-180" },
+            { "name": "Gel-Venture 8", "slug": "gel-venture-8" },
+            { "name": "Gel-Kayano 28", "slug": "gel-kayano-28" },
+            { "name": "Gel-Nimbus 24", "slug": "gel-nimbus-24" },
+            { "name": "Gel-Pulse 13", "slug": "gel-pulse-13" },
+            { "name": "GT-1000 11", "slug": "gt-1000-11" },
+            { "name": "Gel-Contend 7", "slug": "gel-contend-7" },
+            { "name": "Gel-Excite 9", "slug": "gel-excite-9" },
+            { "name": "Jolt 3", "slug": "jolt-3" },
+            { "name": "Hyper Speed", "slug": "hyper-speed" }
+        ],
+        "Puma": [
+            { "name": "R78", "slug": "r78" },
+            { "name": "Graviton", "slug": "graviton" },
+            { "name": "Flyer Runner", "slug": "flyer-runner" },
+            { "name": "Caven", "slug": "caven" },
+            { "name": "Shuffle", "slug": "shuffle" },
+            { "name": "Smash v2", "slug": "smash-v2" },
+            { "name": "Teveris Nitro", "slug": "teveris-nitro" },
+            { "name": "Suede Classic", "slug": "suede-classic" },
+            { "name": "Comet 2", "slug": "comet-2" },
+            { "name": "St Runner", "slug": "st-runner" }
+        ]
+    }
+}

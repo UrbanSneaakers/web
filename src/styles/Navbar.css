@@ -1,13 +1,12 @@
-/* NAVBAR ESTÁNDAR */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px;
+  padding: 12px 24px;
+  background-color: #fff;
   border-bottom: 1px solid #ddd;
-  background-color: white;
   position: relative;
-  flex-wrap: wrap;
+  z-index: 1000;
 }
 
 .navbar-logo {
@@ -16,8 +15,8 @@
 
 .navbar-menu {
   display: flex;
-  gap: 30px;
   list-style: none;
+  gap: 24px;
   margin: 0;
   padding: 0;
 }
@@ -25,80 +24,56 @@
 .navbar-item {
   position: relative;
   cursor: pointer;
-  padding: 5px 0;
-  transition: all 0.2s ease;
 }
 
-.navbar-item.active {
-  border-bottom: 2px solid black;
+.navbar-label {
   font-weight: bold;
+  padding: 8px 0;
+  display: inline-block;
 }
 
-/* SUBMENÚ */
 .dropdown-menu {
   position: absolute;
   top: 100%;
   left: 0;
+  width: 100%;
+  background: white;
   display: flex;
-  background-color: white;
-  border-top: 1px solid #ccc;
-  padding: 20px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   z-index: 10;
-  min-width: 800px;
 }
 
-.dropdown-column {
-  margin-right: 40px;
+.navbar-item:hover .dropdown-menu {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-section {
   min-width: 160px;
 }
 
-.dropdown-column p {
-  margin: 5px 0;
-  color: #444;
+.dropdown-title {
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #333;
+}
+
+.dropdown-item {
+  font-size: 13px;
+  margin-bottom: 4px;
   cursor: pointer;
 }
 
-.navbar-icons {
-  display: flex;
-  gap: 20px;
-  font-size: 20px;
+.dropdown-item:hover {
+  text-decoration: underline;
 }
 
-/* 🎯 RESPONSIVE: MÓVIL */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .navbar-menu {
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-  }
-
-  .navbar-item {
-    width: 100%;
-    padding: 10px 0;
-    border-bottom: 1px solid #eee;
-  }
-
-  .dropdown-menu {
-    position: static;
-    flex-direction: column;
-    box-shadow: none;
-    padding: 10px 0;
-    min-width: auto;
-  }
-
-  .dropdown-column {
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
-
-  .navbar-icons {
-    align-self: flex-end;
-    margin-top: 10px;
-  }
+.navbar-icons {
+  font-size: 20px;
 }

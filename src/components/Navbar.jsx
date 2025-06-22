@@ -1,45 +1,37 @@
-import React, { useState } from 'react';
+import React from 'react';
+import useMenuData from '../hooks/useMenuData';
 import '../styles/Navbar.css';
 
-const navItems = ['Hombre', 'Mujer', 'Ofertas'];
-
-const menuData = {
-  Mujer: {
-    Nike: ['Modelo 1', 'Modelo 2', 'Modelo 3', 'Modelo 4'],
-    Puma: ['Modelo 1', 'Modelo 2', 'Modelo 3', 'Modelo 4'],
-    Reebok: ['Modelo 1', 'Modelo 2', 'Modelo 3', 'Modelo 4'],
-  }
-};
-
 export const Navbar = () => {
-  const [activeItem, setActiveItem] = useState(null);
+  const { menu, loading } = useMenuData();
+
+  const navItems = Object.keys(menu); // ['Hombre', 'Mujer', 'Ofertas']
 
   return (
     <nav className="navbar">
       <div className="navbar-logo">👟</div>
       <ul className="navbar-menu">
-        {navItems.map((item) => (
-          <li
-            key={item}
-            className={`navbar-item ${activeItem === item ? 'active' : ''}`}
-            onMouseEnter={() => setActiveItem(item)}
-            onMouseLeave={() => setActiveItem(null)}
-          >
-            {item}
-            {activeItem === item && menuData[item] && (
+        {loading ? (
+          <li className="navbar-item">Cargando...</li>
+        ) : (
+          navItems.map((item) => (
+            <li key={item} className="navbar-item">
+              <span className="navbar-label">{item}</span>
               <div className="dropdown-menu">
-                {Object.entries(menuData[item]).map(([category, links]) => (
-                  <div key={category} className="dropdown-column">
-                    <strong>{category}</strong>
-                    {links.map((link) => (
-                      <p key={link}>{link}</p>
+                {Object.entries(menu[item]).map(([brand, models]) => (
+                  <div key={brand} className="dropdown-section">
+                    <div className="dropdown-title">{brand}</div>
+                    {models.map((model) => (
+                      <div key={model.slug} className="dropdown-item">
+                        {model.name}
+                      </div>
                     ))}
                   </div>
                 ))}
               </div>
-            )}
-          </li>
-        ))}
+            </li>
+          ))
+        )}
       </ul>
       <div className="navbar-icons">🔍 ❤️ 🛒</div>
     </nav>

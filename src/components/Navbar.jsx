@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import '../styles/Navbar.css';
 
-const navItems = ['Lo Nuevo', 'Hombre', 'Mujer', 'Niño/a', 'Ofertas', 'SNKRS'];
+const navItems = ['Hombre', 'Mujer', 'Ofertas'];
 
 const menuData = {
   Mujer: {
-    Destacados: ['Comprar todo Mujer', 'Lo Nuevo', 'Los más vendidos', 'Ofertas para Mujer'],
-    Calzado: ['Todo el calzado', 'Casual', 'Jordan', 'Gym y Entrenamiento', 'Correr', 'AF1', 'Tenis'],
-    Ropa: ['Toda la ropa', 'Playeras y Tops', 'Leggings', 'Bras deportivos', 'Pants'],
-    Deporte: ['Fitness', 'Correr', 'Baile', 'Tenis y Padel', 'Fútbol'],
-    Accesorios: ['Todos los accesorios', 'Bolsas y mochilas', 'Gorras, viseras y bandas'],
+    Nike: ['Modelo 1', 'Modelo 2', 'Modelo 3', 'Modelo 4'],
+    Puma: ['Modelo 1', 'Modelo 2', 'Modelo 3', 'Modelo 4'],
+    Reebok: ['Modelo 1', 'Modelo 2', 'Modelo 3', 'Modelo 4'],
   }
 };
 

@@ -1,3 +1,4 @@
+/* // MARK: - Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -32,48 +33,11 @@
   display: inline-block;
 }
 
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background: white;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  z-index: 10;
-}
-
-.navbar-item:hover .dropdown-menu {
-  display: flex;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.dropdown-section {
-  min-width: 160px;
-}
-
-.dropdown-title {
-  font-weight: bold;
-  margin-bottom: 8px;
-  font-size: 14px;
-  text-transform: uppercase;
-  color: #333;
-}
-
-.dropdown-item {
-  font-size: 13px;
-  margin-bottom: 4px;
-  cursor: pointer;
-}
-
-.dropdown-item:hover {
-  text-decoration: underline;
-}
-
 .navbar-icons {
   font-size: 20px;
+}
+
+.navbar-hover-group {
+  display: inline-block;
+  position: relative;
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import '../styles/DropdownMenu.css';
 
 const DropdownMenu = ({ items }) => {
+
   return (
     <div className="dropdown-menu">
       <div className="dropdown-wrapper">

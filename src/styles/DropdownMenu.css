@@ -1,16 +1,3 @@
-/* // MARK: - Dropdown Menu */
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100vw;
-  background: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  z-index: 999;
-  padding: 2rem 0;
-  display: none;
-}
-
 /* // MARK: - Dropdown Visible on Hover */
 .navbar-item:hover .dropdown-menu {
   display: block;
@@ -52,13 +39,26 @@
   text-decoration: underline;
 }
 
-/* Dropdown wrapper */
+/* // MARK: - Dropdown Menu */
+
+.dropdown-menu {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100vw;
+  background: white;
+  z-index: 999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem 4rem;
+}
+
+/* // MARK: - Dropdown Wrappers */
+
 .dropdown-wrapper {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
   gap: 3rem;
-  justify-content: flex-start; /* o space-between */
-  padding: 0 2rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }

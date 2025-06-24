@@ -19,28 +19,21 @@ export const Navbar = () => {
           <li className="navbar-item">Cargando...</li>
         ) : (
           navItems.map((item) => (
-            <div
+            <li
               key={item}
-              className="navbar-hover-group"
-              onMouseEnter={() => {
-                setHoveredItem(item);
-                console.log('--> Hovered:', item); // ✅ Verifica que entra aquí
-              }}
+              className="navbar-item"
+              onMouseEnter={() => setHoveredItem(item)}
               onMouseLeave={() => setHoveredItem(null)}
-              style={{ position: 'relative' }}
             >
-              <li className="navbar-item">
-                <span className="navbar-label">{item}</span>
-              </li>
-
-              {/* Muestra el dropdown pegado al item */}
-              {hoveredItem === item && (
-                <DropdownMenu items={menu[item]} />
-              )}
-            </div>
+              <span className="navbar-label">{item}</span>
+            </li>
           ))
         )}
       </ul>
+
+      {hoveredItem && menu[hoveredItem] && (
+        <DropdownMenu items={menu[hoveredItem]} />
+      )}
 
       <div className="navbar-icons">🔍 ❤️ 🛒</div>
     </nav>

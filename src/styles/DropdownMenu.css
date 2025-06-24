@@ -42,15 +42,26 @@
 /* // MARK: - Dropdown Menu */
 
 .dropdown-menu {
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 500ms ease, transform 500ms ease;
   position: fixed;
   top: 60px;
   left: 0;
   width: 100vw;
   background: white;
-  z-index: 999;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 2rem 4rem;
+  z-index: 999;
+  padding: 2rem 0;
 }
+
+.dropdown-menu.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
 
 /* // MARK: - Dropdown Wrappers */
 

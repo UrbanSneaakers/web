@@ -83,6 +83,7 @@
   transition: transform 0.3s ease, z-index 0.3s ease;
   text-align: center;
   will-change: transform;
+  color: white;
 }
 
 

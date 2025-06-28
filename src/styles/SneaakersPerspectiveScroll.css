@@ -1,0 +1,111 @@
+/* Wrapper centrado que muestra exactamente 3 elementos */
+.scroll-wrapper {
+  position: relative;
+  width: 1080px; /* 3 tarjetas de 320px + separación */
+  margin: 0 auto;
+  top: 96px;
+  overflow: hidden;
+  padding: 40px 0;
+}
+
+/* Degradados suaves en los bordes */
+.scroll-wrapper::before,
+.scroll-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 320px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.scroll-wrapper::before {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    #0d0d0dFF 0%,
+    #0d0d0dE6 10%,
+    #0d0d0dCC 20%,
+    #0d0d0dB3 30%,
+    #0d0d0d99 40%,
+    #0d0d0d80 50%,
+    #0d0d0d66 60%,
+    #0d0d0d4D 70%,
+    #0d0d0d33 80%,
+    #0d0d0d1A 90%,
+    #0d0d0d00 100%
+  );
+}
+
+.scroll-wrapper::after {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    #0d0d0dFF 0%,
+    #0d0d0dE6 10%,
+    #0d0d0dCC 20%,
+    #0d0d0dB3 30%,
+    #0d0d0d99 40%,
+    #0d0d0d80 50%,
+    #0d0d0d66 60%,
+    #0d0d0d4D 70%,
+    #0d0d0d33 80%,
+    #0d0d0d1A 90%,
+    #0d0d0d00 100%
+  );
+}
+
+/* Contenedor con scroll horizontal y arrastre */
+.scroll-container {
+  display: flex;
+  gap: 48px;
+  overflow-x: auto;
+  padding: 0 48px;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: auto;
+  cursor: grab;
+  user-select: none;
+  scrollbar-width: none; /* Firefox */
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none; /* Safari/Chrome */
+}
+
+.scroll-container.dragging {
+  cursor: grabbing;
+}
+
+/* Ítem individual */
+.scroll-item {
+  flex: 0 0 320px;
+  transition: transform 0.3s ease, z-index 0.3s ease;
+  text-align: center;
+  will-change: transform;
+}
+
+
+/* Imagen del tenis */
+.scroll-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+/* Información textual del tenis */
+.scroll-item .info {
+  margin-top: 10px;
+}
+
+.scroll-item .info h3 {
+  font-size: 1rem;
+  margin: 8px 0 4px;
+}
+
+.scroll-item .info p {
+  font-size: 0.9rem;
+  margin: 2px 0;
+}

@@ -4,9 +4,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 12px 24px;
-  background-color: #fff;
-  border-bottom: 1px solid #ddd;
+  background-color: #0d0d0d;
+  border-bottom: 1px solid #ffffff;
   position: sticky;
+  height: 56px;
   top: 0;
   z-index: 1000;
 }
@@ -32,6 +33,7 @@
   font-weight: bold;
   padding: 8px 0;
   display: inline-block;
+  color: #EDEDED;
 }
 
 .navbar-icons {

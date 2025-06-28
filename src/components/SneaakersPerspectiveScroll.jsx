@@ -20,26 +20,34 @@ const SneaakersPerspectiveScroll = forwardRef((props, ref) => {
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
-
+  
     const update = () => {
-      setContainerWidth(container.offsetWidth);
+      const containerW = container.offsetWidth;
+      setContainerWidth(containerW);
       setScrollX(container.scrollLeft);
     };
-
-    requestAnimationFrame(update);
-
+  
+    requestAnimationFrame(() => {
+      update();
+  
+      // Centrar el segundo elemento al inicio
+      const itemWidth = 428; // o como lo tengas definido
+      const initialScroll = itemWidth * 1 - (container.offsetWidth / 2 - itemWidth / 2); // Para centrar el index 1
+      container.scrollLeft = initialScroll;
+    });
+  
     const onScroll = () => {
       setScrollX(container.scrollLeft);
     };
-
+  
     container.addEventListener('scroll', onScroll);
     window.addEventListener('resize', update);
-
+  
     return () => {
       container.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', update);
     };
-  }, [sneaakers]);
+  }, [sneaakers]);  
 
   if (loading) return <p style={{ textAlign: 'center' }}>Cargando tenis...</p>;
 

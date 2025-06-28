@@ -1,13 +1,13 @@
 import './App.css';
 import React from 'react';
 import { Navbar } from './components/Navbar';
-import SneaakersPerspectiveScroll from './components/SneaakersPerspectiveScroll';
+import SneaakersGalleryFrame from './components/SneaakersGalleryFrame';
 
 function App() {
   return (
     <>
       <Navbar />
-      <SneaakersPerspectiveScroll />
+      <SneaakersGalleryFrame />
       <div className="app-wrapper">
         <h1>Bienvenido a Urban Sneaakers 👟</h1>
         <p>¡Muy pronto podrás ver nuestro catálogo de tenis!</p>

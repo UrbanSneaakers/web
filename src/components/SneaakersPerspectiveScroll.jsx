@@ -1,22 +1,21 @@
-import React, { useRef, useEffect, useState } from 'react';
-import Chevron from './Chevron';
+import React, {
+  useRef,
+  useEffect,
+  useState,
+  forwardRef,
+  useImperativeHandle,
+} from 'react';
 import { useSneaakers } from '../hooks/useSneaakers';
 import '../styles/SneaakersPerspectiveScroll.css';
 
-const SneaakersPerspectiveScroll = () => {
+const SneaakersPerspectiveScroll = forwardRef((props, ref) => {
   const { sneaakers, loading } = useSneaakers();
   const containerRef = useRef(null);
   const [scrollX, setScrollX] = useState(0);
   const [containerWidth, setContainerWidth] = useState(0);
 
-  const scrollBy = (direction) => {
-    if (!containerRef.current) return;
-    const scrollAmount = itemWidth;
-    containerRef.current.scrollBy({ 
-      left: direction * scrollAmount, 
-      behavior: 'smooth' 
-    });
-  };
+  // Exponer el contenedor scrollable al padre
+  useImperativeHandle(ref, () => containerRef.current);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -27,7 +26,7 @@ const SneaakersPerspectiveScroll = () => {
       setScrollX(container.scrollLeft);
     };
 
-    requestAnimationFrame(update); // asegúrate de que el layout esté listo
+    requestAnimationFrame(update);
 
     const onScroll = () => {
       setScrollX(container.scrollLeft);
@@ -46,11 +45,10 @@ const SneaakersPerspectiveScroll = () => {
 
   const minScale = 0.45;
   const maxScale = 1.0;
-  const itemWidth = 420 + 8;
+  const itemWidth = 428;
 
   return (
     <div className="scroll-wrapper">
-          <Chevron direction="left" onClick={() => scrollBy(-1)} /> 
       <div className="scroll-container" ref={containerRef}>
         {sneaakers.map((s, index) => {
           const itemLeft = index * itemWidth;
@@ -82,9 +80,8 @@ const SneaakersPerspectiveScroll = () => {
           );
         })}
       </div>
-      <Chevron direction="right" onClick={() => scrollBy(1)} />
     </div>
   );
-};
+});
 
 export default SneaakersPerspectiveScroll;

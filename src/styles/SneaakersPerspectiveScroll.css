@@ -3,7 +3,7 @@
   position: relative;
   width: 1080px; /* 3 tarjetas de 320px + separación */
   margin: 0 auto;
-  top: 96px;
+  top: 16px;
   overflow: hidden;
   padding: 40px 0;
   background-color: #0d0d0d;

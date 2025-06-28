@@ -1,0 +1,25 @@
+.chevron-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(199, 199, 199, 0.5);
+    border: none;
+    border-radius: 50%;
+    padding: 12px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.2s ease;
+  }
+  
+  .chevron-button:hover {
+    background: rgba(138, 138, 138, 0.2);
+  }
+  
+  .chevron-button.left {
+    left: 8px;
+  }
+  
+  .chevron-button.right {
+    right: 8px;
+  }
+  

@@ -6,6 +6,7 @@
   top: 96px;
   overflow: hidden;
   padding: 40px 0;
+  background-color: #0d0d0d;
 }
 
 /* Degradados suaves en los bordes */
@@ -15,7 +16,7 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 320px;
+  width: 420px;
   z-index: 1;
   pointer-events: none;
 }
@@ -58,15 +59,17 @@
 
 /* Contenedor con scroll horizontal y arrastre */
 .scroll-container {
+  position: relative;
   display: flex;
-  gap: 48px;
+  gap: 8px;
   overflow-x: auto;
-  padding: 0 48px;
+  padding: 0 8px;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: auto;
   cursor: grab;
   user-select: none;
   scrollbar-width: none; /* Firefox */
+  z-index: 0;
 }
 
 .scroll-container::-webkit-scrollbar {
@@ -79,7 +82,7 @@
 
 /* Ítem individual */
 .scroll-item {
-  flex: 0 0 320px;
+  flex: 0 0 420px;
   transition: transform 0.3s ease, z-index 0.3s ease;
   text-align: center;
   will-change: transform;
@@ -90,7 +93,7 @@
 /* Imagen del tenis */
 .scroll-item img {
   width: 100%;
-  height: 180px;
+  height: 380px;
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);

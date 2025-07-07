@@ -1,14 +1,23 @@
 // SneaakersPerspectiveScroll.jsx
-import React, { useRef, useEffect, useState, forwardRef, useImperativeHandle } from 'react';
-import { useSneaakers } from '../hooks/useSneaakers';
+import React, {
+  useRef,
+  useEffect,
+  useState,
+  forwardRef,
+  useImperativeHandle,
+} from 'react';
 import '../styles/SneaakersPerspectiveScroll.css';
 
-const SneaakersPerspectiveScroll = forwardRef((_, ref) => {
-  const { sneaakers, loading } = useSneaakers();
+/**
+ * @param {Object} props
+ * @param {Array} props.items - Lista de tenis a mostrar
+ * @param {boolean} props.loading - Estado de carga (opcional)
+ */
+const SneaakersPerspectiveScroll = forwardRef(({ items = [], loading = false }, ref) => {
   const containerRef = useRef(null);
   const [scrollX, setScrollX] = useState(0);
   const [containerWidth, setContainerWidth] = useState(0);
-  const itemWidth = 428; // 420 + 8
+  const itemWidth = 428;
   const cloneCount = 2;
 
   useEffect(() => {
@@ -26,12 +35,12 @@ const SneaakersPerspectiveScroll = forwardRef((_, ref) => {
       const maxScroll = container.scrollWidth - container.clientWidth;
 
       if (container.scrollLeft <= 0) {
-        container.scrollLeft = container.scrollLeft + sneaakers.length * itemWidth;
+        container.scrollLeft += items.length * itemWidth;
         return;
       }
 
       if (container.scrollLeft >= maxScroll - itemWidth) {
-        container.scrollLeft = container.scrollLeft - sneaakers.length * itemWidth;
+        container.scrollLeft -= items.length * itemWidth;
         return;
       }
 
@@ -41,8 +50,7 @@ const SneaakersPerspectiveScroll = forwardRef((_, ref) => {
     container.addEventListener('scroll', onScroll);
     window.addEventListener('resize', update);
 
-    // Centrar en el segundo elemento
-    if (sneaakers.length > 0) {
+    if (items.length > 0) {
       container.scrollLeft = itemWidth * cloneCount;
     }
 
@@ -50,7 +58,7 @@ const SneaakersPerspectiveScroll = forwardRef((_, ref) => {
       container.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', update);
     };
-  }, [sneaakers]);
+  }, [items]);
 
   useImperativeHandle(ref, () => containerRef.current);
 
@@ -60,9 +68,9 @@ const SneaakersPerspectiveScroll = forwardRef((_, ref) => {
   const maxScale = 1.0;
 
   const repeatedItems = [
-    ...sneaakers.slice(-cloneCount),
-    ...sneaakers,
-    ...sneaakers.slice(0, cloneCount),
+    ...items.slice(-cloneCount),
+    ...items,
+    ...items.slice(0, cloneCount),
   ];
 
   return (
@@ -73,8 +81,8 @@ const SneaakersPerspectiveScroll = forwardRef((_, ref) => {
           const itemCenter = itemLeft + itemWidth / 2;
           const containerCenter = scrollX + containerWidth / 2;
           const distance = Math.abs(containerCenter - itemCenter);
-
-          const scale = minScale + (maxScale - minScale) * Math.exp(-distance / 400);
+          const scale =
+            minScale + (maxScale - minScale) * Math.exp(-distance / 400);
 
           return (
             <div

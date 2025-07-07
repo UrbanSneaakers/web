@@ -17,4 +17,9 @@
     position: relative;
   }
 
+  .chevron-button {
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+  }
   

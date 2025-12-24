@@ -5,12 +5,11 @@ import DropdownMenu from './DropdownMenu';
 import '../styles/Navbar.css';
 
 export const Navbar = () => {
-  const { menu, loading } = useMenuData();
+  const { menu, loading, error } = useMenuData();
   const [hoveredItem, setHoveredItem] = useState(null);
   const [isHoveringDropdown, setIsHoveringDropdown] = useState(false);
   const hoverTimeout = useRef(null);
 
-  const navItems = Object.keys(menu);
   const HOVER_EXIT_DELAY_MS = 100;
   const TRANSITION_DELAY_MS = 150;
 
@@ -57,8 +56,10 @@ export const Navbar = () => {
       <ul className="navbar-menu">
         {loading ? (
           <li className="navbar-item">Cargando...</li>
-        ) : (
-          navItems.map((item) => (
+        ) : error ? (
+          <li className="navbar-item">Error cargando menú: {error.message}</li>
+        ) : menu ? (
+          Object.keys(menu).map((item) => (
             <li
               key={item}
               className="navbar-item"
@@ -68,11 +69,13 @@ export const Navbar = () => {
               <span className="navbar-label">{item}</span>
             </li>
           ))
+        ) : (
+          <li className="navbar-item">Menú no disponible</li>
         )}
       </ul>
 
       <DropdownMenu
-        items={menu[hoveredItem] || {}}
+        items={menu && menu[hoveredItem] ? menu[hoveredItem] : {}}
         visible={!!hoveredItem}
         onMouseEnter={handleDropdownMouseEnter}
         onMouseLeave={handleDropdownMouseLeave}

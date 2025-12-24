@@ -13,7 +13,8 @@ const SneaakersList = () => {
         {sneaakers.map((s) => (
           <div key={s.id} style={{
             border: '1px solid #ddd',
-            borderRadius: '8px',
+            backgroundColor: '#f9f9f9',
+            borderRadius: '0px',
             padding: '16px',
             width: '200px',
             textAlign: 'center'

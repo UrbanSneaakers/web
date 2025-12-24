@@ -1,27 +1,10 @@
 // hooks/useMenuData.js
-import { useEffect, useState } from 'react';
+import { useJsonFetcher } from './useJsonFetcher';
 
 const useMenuData = () => {
-  const [menu, setMenu] = useState({});
-  const [loading, setLoading] = useState(true);
+  const { data: menu, loading, error } = useJsonFetcher('https://xagdiwboezbkbxfyzebq.supabase.co/storage/v1/object/public/json/data/navbar_menu.json');
 
-  useEffect(() => {
-    const fetchMenu = async () => {
-      try {
-        const response = await fetch('https://xagdiwboezbkbxfyzebq.supabase.co/storage/v1/object/public/json/data/navbar_menu.json');
-        const data = await response.json();
-        setMenu(data);
-      } catch (error) {
-        console.error('Error cargando el menú:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchMenu();
-  }, []);
-
-  return { menu, loading };
+  return { menu, loading, error };
 };
 
 export default useMenuData;

@@ -8,7 +8,7 @@ const useMenuData = () => {
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const response = await fetch('https://pfuyelnqddlasscsnkfj.supabase.co/storage/v1/object/public/json-data//navbar_menu.json');
+        const response = await fetch('https://xagdiwboezbkbxfyzebq.supabase.co/storage/v1/object/public/json/data/navbar_menu.json');
         const data = await response.json();
         setMenu(data);
       } catch (error) {

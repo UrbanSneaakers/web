@@ -1,20 +1,27 @@
 import { useEffect, useState } from 'react';
-import { supabase } from '../lib/supabaseClient';
 
 export const useSneaakers = () => {
   const [sneaakers, setSneaakers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchSneaakers = async () => {
-      const { data, error } = await supabase.from('Sneaakers').select('*');
-      if (error) console.error(error);
-      else setSneaakers(data);
-      setLoading(false);
+      try {
+        const response = await fetch('https://xagdiwboezbkbxfyzebq.supabase.co/storage/v1/object/public/json/data/sneaakers.json');
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
+        setSneaakers(data);
+      } catch (err) {
+        console.error('Error cargando los sneaakers:', err);
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchSneaakers();
   }, []);
 
-  return { sneaakers, loading };
+  return { sneaakers, loading, error };
 };

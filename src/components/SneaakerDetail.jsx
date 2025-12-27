@@ -10,7 +10,7 @@ const SneaakerDetail = () => {
   const { selectedSize, handleSizeSelect } = useSneaakerDetailViewModel();
 
   const handleBuy = () => {
-    navigate('/compra');
+    navigate('/compra', { state: { selectedSize, sneaker } });
   };
 
   if (loading) return <p>Cargando...</p>;
@@ -55,7 +55,7 @@ const SneaakerDetail = () => {
         </div>
       )}
       {sneaker.color && <p>Color: {sneaker.color}</p>}
-      <button onClick={handleBuy} style={{ backgroundColor: 'black', color: 'white', padding: '10px 20px', border: 'none', cursor: 'pointer', marginTop: '20px' }}>
+      <button onClick={handleBuy} disabled={!selectedSize} style={{ backgroundColor: 'black', color: 'white', padding: '10px 20px', border: 'none', cursor: selectedSize ? 'pointer' : 'not-allowed', marginTop: '20px', opacity: selectedSize ? 1 : 0.15 }}>
         Comprar
       </button>
     </div>

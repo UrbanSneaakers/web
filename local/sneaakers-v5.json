@@ -1,0 +1,64 @@
+{
+  "Mujer": {
+    "Nike": [
+      {
+        "id": "1",
+        "name": "Air Max 90 Rosa",
+        "brand": "Nike",
+        "price": 120.0,
+        "imageUrlString": "https://static.nike.com/a/images/t_web_pdp_936_v2/f_auto/7fa8ae8e-e19e-485e-b29d-c13aec21489c/WMNS+AIR+MAX+90+NN+PRM.png",
+        "description": "Tenis cómodos para mujer.",
+        "sizes": [36, 37, 38, 39, 40],
+        "available": true,
+        "color": "rosa",
+        "created_at": "2025-01-01T00:00:00Z",
+        "isFeatured": false
+      },
+      {
+        "id": "2",
+        "name": "Court Vision Low",
+        "brand": "Nike",
+        "price": 110.0,
+        "imageUrlString": "https://static.nike.com/a/images/t_default/cea0253b-8ad3-4ba1-9644-c82fddb93aa9/NIKE+COURT+VISION+LO.png",
+        "description": "Estilo clásico para mujer.",
+        "sizes": [37, 38, 39, 40, 41],
+        "available": true,
+        "color": "blanco",
+        "created_at": "2025-01-02T00:00:00Z",
+        "isFeatured": true
+      }
+    ],
+    "Puma": [
+      {
+        "id": "3",
+        "name": "Carina Street",
+        "brand": "Puma",
+        "price": 100.0,
+        "imageUrlString": "https://2app.kicksonfire.com/kofapp/upload/events_master_images/ipad_puma-carina-street-white-black.png",
+        "description": "Estilo urbano.",
+        "sizes": [36, 37, 38, 39],
+        "available": true,
+        "color": "negro",
+        "created_at": "2025-01-03T00:00:00Z",
+        "isFeatured": false
+      }
+    ]
+  },
+  "Hombre": {
+    "Nike": [
+      {
+        "id": "4",
+        "name": "Air Force 1 Shadow",
+        "brand": "Nike",
+        "price": 130.0,
+        "imageUrlString": "https://static.nike.com/a/images/t_web_pdp_936_v2/f_auto/5482d0ee-6aea-4e99-8709-d90e4ea18733/W+AF1+SHADOW.png",
+        "description": "Clásico para hombre.",
+        "sizes": [40, 41, 42, 43, 44],
+        "available": true,
+        "color": "gris",
+        "created_at": "2025-01-04T00:00:00Z",
+        "isFeatured": true
+      }
+    ]
+  }
+}

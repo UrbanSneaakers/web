@@ -1,7 +1,18 @@
 import React from 'react';
+import { useNavigate } from 'react-router';
 import '../styles/DropdownMenu.css';
 
 const DropdownMenu = ({ items, onMouseEnter, onMouseLeave, visible }) => {
+  const navigate = useNavigate();
+
+  const handleBrandClick = (brand) => {
+    navigate(`/marca/${brand}`);
+  };
+
+  const handleModelClick = (id) => {
+    navigate(`/sneaker/${id}`);
+  };
+
   return (
     <div
       className={`dropdown-menu ${visible ? 'visible' : ''}`}
@@ -11,9 +22,11 @@ const DropdownMenu = ({ items, onMouseEnter, onMouseLeave, visible }) => {
       <div className="dropdown-wrapper">
         {Object.entries(items).map(([brand, models]) => (
           <div key={brand} className="dropdown-section">
-            <div className="dropdown-title">{brand}</div>
+            <div className="dropdown-title" onClick={() => handleBrandClick(brand)} style={{ cursor: 'pointer' }}>
+              {brand}
+            </div>
             {models.map((model) => (
-              <div key={model.slug} className="dropdown-item">
+              <div key={model.id} className="dropdown-item" onClick={() => handleModelClick(model.id)} style={{ cursor: 'pointer' }}>
                 {model.name}
               </div>
             ))}

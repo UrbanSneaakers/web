@@ -9,7 +9,17 @@ const SneaakerDetail = () => {
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  const sneaker = data?.sneakers?.find(s => s.id === id);
+  let sneaker = null;
+  if (data) {
+    Object.values(data).forEach(category => {
+      Object.values(category).forEach(brandArray => {
+        if (Array.isArray(brandArray)) {
+          const found = brandArray.find(s => s.id === id);
+          if (found) sneaker = found;
+        }
+      });
+    });
+  }
 
   if (!sneaker) return <p>Sneaker no encontrado</p>;
 

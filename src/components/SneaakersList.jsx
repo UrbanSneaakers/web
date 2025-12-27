@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSneaakers } from '../hooks/useSneaakers';
+import SneaakerCard from './SneaakerCard';
 
 const SneaakersList = () => {
   const { sneaakers, loading } = useSneaakers();
@@ -11,19 +12,7 @@ const SneaakersList = () => {
       <h2>Catálogo de Tenis</h2>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px' }}>
         {sneaakers.map((s) => (
-          <div key={s.id} style={{
-            border: '1px solid #ddd',
-            backgroundColor: '#f9f9f9',
-            borderRadius: '0px',
-            padding: '16px',
-            width: '200px',
-            textAlign: 'center'
-          }}>
-            <img src={s.imageUrlString} alt={s.name} style={{ width: '100%', height: '150px', objectFit: 'cover' }} />
-            <h3>{s.name}</h3>
-            <p>Marca: {s.brand}</p>
-            <p><strong>${s.price}</strong></p>
-          </div>
+          <SneaakerCard key={s.id} sneaker={s} />
         ))}
       </div>
     </div>

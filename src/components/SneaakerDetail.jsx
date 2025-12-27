@@ -1,10 +1,15 @@
 import React from 'react';
-import { useParams } from 'react-router';
+import { useParams, useNavigate } from 'react-router';
 import { useUnifiedData } from '../hooks/useUnifiedData';
 
 const SneaakerDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { data, loading, error } = useUnifiedData();
+
+  const handleBuy = () => {
+    navigate('/compra');
+  };
 
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>Error: {error.message}</p>;
@@ -32,6 +37,9 @@ const SneaakerDetail = () => {
       {sneaker.description && <p>{sneaker.description}</p>}
       {sneaker.sizes && <p>Tallas: {sneaker.sizes.join(', ')}</p>}
       {sneaker.color && <p>Color: {sneaker.color}</p>}
+      <button onClick={handleBuy} style={{ backgroundColor: 'black', color: 'white', padding: '10px 20px', border: 'none', cursor: 'pointer', marginTop: '20px' }}>
+        Comprar
+      </button>
     </div>
   );
 };

@@ -5,6 +5,7 @@ import SneaakerDetail from './components/SneaakerDetail';
 import BrandDetail from './components/BrandDetail';
 import CategoryDetail from './components/CategoryDetail';
 import CategoryBrandDetail from './components/CategoryBrandDetail';
+import PurchaseScreen from './components/PurchaseScreen';
 
 const Router = () => {
   return (
@@ -14,6 +15,7 @@ const Router = () => {
       <Route path="/marca/:brand" element={<BrandDetail />} />
       <Route path="/categoria/:category" element={<CategoryDetail />} />
       <Route path="/categoria/:category/marca/:brand" element={<CategoryBrandDetail />} />
+      <Route path="/compra" element={<PurchaseScreen />} />
     </Routes>
   );
 };

@@ -1,11 +1,16 @@
 import React from 'react';
-import { useParams } from 'react-router';
+import { useParams, useNavigate } from 'react-router';
 import { useUnifiedData } from '../hooks/useUnifiedData';
 import SneaakerCard from './SneaakerCard';
 
 const CategoryBrandDetail = () => {
   const { category, brand } = useParams();
+  const navigate = useNavigate();
   const { data, loading, error } = useUnifiedData();
+
+  const handleBuy = () => {
+    navigate('/compra');
+  };
 
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>Error: {error.message}</p>;
@@ -14,9 +19,14 @@ const CategoryBrandDetail = () => {
   const brandSneakers = categoryData?.[brand] || [];
 
   return (
-    <div style={{ padding: '40px' }}>
-      <h2>Tenis {brand} de {category}</h2>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px' }}>
+    <div style={{ padding: '40px', textAlign: 'center' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '20px' }}>
+        <h2>Tenis {brand} de {category}</h2>
+        <button onClick={handleBuy} style={{ backgroundColor: 'black', color: 'white', padding: '10px 20px', border: 'none', cursor: 'pointer', marginLeft: '20px' }}>
+          Comprar
+        </button>
+      </div>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', justifyContent: 'center' }}>
         {brandSneakers.map((s) => (
           <SneaakerCard key={s.id} sneaker={s} />
         ))}

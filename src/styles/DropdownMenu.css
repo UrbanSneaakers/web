@@ -28,6 +28,10 @@
   color: #EDEDED;
 }
 
+.dropdown-title:hover {
+  text-decoration: underline;
+}
+
 /* // MARK: - Dropdown Items */
 .dropdown-item {
   font-size: 13px;

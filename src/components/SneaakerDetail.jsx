@@ -1,11 +1,13 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router';
 import { useUnifiedData } from '../hooks/useUnifiedData';
+import { useSneaakerDetailViewModel } from '../viewModels/SneaakerDetailViewModel';
 
 const SneaakerDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { data, loading, error } = useUnifiedData();
+  const { selectedSize, handleSizeSelect } = useSneaakerDetailViewModel();
 
   const handleBuy = () => {
     navigate('/compra');
@@ -35,7 +37,23 @@ const SneaakerDetail = () => {
       <p>Marca: {sneaker.brand}</p>
       <p>Precio: ${sneaker.price}</p>
       {sneaker.description && <p>{sneaker.description}</p>}
-      {sneaker.sizes && <p>Tallas: {sneaker.sizes.join(', ')}</p>}
+      {sneaker.sizes && (
+        <div style={{ marginTop: '20px' }}>
+          <p>Tallas disponibles:</p>
+          {sneaker.sizes.map((size) => (
+            <label key={size} style={{ marginRight: '10px' }}>
+              <input
+                type="radio"
+                name="size"
+                value={size}
+                checked={selectedSize === size}
+                onChange={() => handleSizeSelect(size)}
+              />
+              {size}
+            </label>
+          ))}
+        </div>
+      )}
       {sneaker.color && <p>Color: {sneaker.color}</p>}
       <button onClick={handleBuy} style={{ backgroundColor: 'black', color: 'white', padding: '10px 20px', border: 'none', cursor: 'pointer', marginTop: '20px' }}>
         Comprar

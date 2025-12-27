@@ -2,11 +2,11 @@ import React from 'react';
 import { useNavigate } from 'react-router';
 import '../styles/DropdownMenu.css';
 
-const DropdownMenu = ({ items, onMouseEnter, onMouseLeave, visible }) => {
+const DropdownMenu = ({ items, onMouseEnter, onMouseLeave, visible, category }) => {
   const navigate = useNavigate();
 
   const handleBrandClick = (brand) => {
-    navigate(`/marca/${brand}`);
+    navigate(`/categoria/${category}/marca/${brand}`);
   };
 
   const handleModelClick = (id) => {

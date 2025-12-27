@@ -1,52 +1,24 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
+import { useNavigate } from 'react-router';
 import useMenuData from '../hooks/useMenuData';
 import DropdownMenu from './DropdownMenu';
+import { useNavbarViewModel } from '../viewModels/NavbarViewModel';
 
 import '../styles/Navbar.css';
 
 export const Navbar = () => {
   const { menu, loading, error } = useMenuData();
-  const [hoveredItem, setHoveredItem] = useState(null);
-  const [isHoveringDropdown, setIsHoveringDropdown] = useState(false);
-  const hoverTimeout = useRef(null);
+  const navigate = useNavigate();
+  const {
+    hoveredItem,
+    handleItemMouseEnter,
+    handleItemMouseLeave,
+    handleDropdownMouseEnter,
+    handleDropdownMouseLeave,
+  } = useNavbarViewModel();
 
-  const HOVER_EXIT_DELAY_MS = 100;
-  const TRANSITION_DELAY_MS = 150;
-
-  const cancelPendingClose = () => {
-    if (hoverTimeout.current) {
-      clearTimeout(hoverTimeout.current);
-      hoverTimeout.current = null;
-    }
-  };
-
-  const handleItemMouseEnter = (item) => {
-    cancelPendingClose();
-
-    if (hoveredItem && hoveredItem !== item) {
-      setHoveredItem(null); // inicia fade-out
-      setTimeout(() => setHoveredItem(item), TRANSITION_DELAY_MS); // luego cambia
-    } else {
-      setHoveredItem(item);
-    }
-  };
-
-  const handleItemMouseLeave = () => {
-    hoverTimeout.current = setTimeout(() => {
-      if (!isHoveringDropdown) {
-        setHoveredItem(null);
-      }
-    }, HOVER_EXIT_DELAY_MS);
-  };
-
-  const handleDropdownMouseEnter = () => {
-    cancelPendingClose();
-    setIsHoveringDropdown(true);
-  };
-
-  const handleDropdownMouseLeave = () => {
-    setIsHoveringDropdown(false);
-    setHoveredItem(null);
+  const handleCategoryClick = (category) => {
+    navigate(`/categoria/${category}`);
   };
 
   return (
@@ -66,7 +38,9 @@ export const Navbar = () => {
               onMouseEnter={() => handleItemMouseEnter(item)}
               onMouseLeave={handleItemMouseLeave}
             >
-              <span className="navbar-label">{item}</span>
+              <span className="navbar-label" onClick={() => handleCategoryClick(item)} style={{ cursor: 'pointer' }}>
+                {item}
+              </span>
             </li>
           ))
         ) : (
@@ -79,6 +53,7 @@ export const Navbar = () => {
         visible={!!hoveredItem}
         onMouseEnter={handleDropdownMouseEnter}
         onMouseLeave={handleDropdownMouseLeave}
+        category={hoveredItem}
       />
 
       <div className="navbar-icons">🔍 ❤️ 🛒</div>

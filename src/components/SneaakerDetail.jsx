@@ -1,15 +1,15 @@
 import React from 'react';
 import { useParams } from 'react-router';
-import { useSneaakers } from '../hooks/useSneaakers';
+import { useUnifiedData } from '../hooks/useUnifiedData';
 
 const SneaakerDetail = () => {
   const { id } = useParams();
-  const { sneaakers, loading, error } = useSneaakers();
+  const { data, loading, error } = useUnifiedData();
 
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  const sneaker = sneaakers.find(s => s.id === id);
+  const sneaker = data?.sneakers?.find(s => s.id === id);
 
   if (!sneaker) return <p>Sneaker no encontrado</p>;
 

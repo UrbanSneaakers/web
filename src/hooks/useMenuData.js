@@ -1,10 +1,10 @@
 // hooks/useMenuData.js
-import { useJsonFetcher } from './useJsonFetcher';
+import { useUnifiedData } from './useUnifiedData';
 
 const useMenuData = () => {
-  const { data: menu, loading, error } = useJsonFetcher('https://xagdiwboezbkbxfyzebq.supabase.co/storage/v1/object/public/json/data/navbar_menu.json');
+  const { data, loading, error } = useUnifiedData();
 
-  return { menu, loading, error };
+  return { menu: data?.menu || {}, loading, error };
 };
 
 export default useMenuData;

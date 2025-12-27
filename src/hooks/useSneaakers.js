@@ -1,7 +1,9 @@
-import { useJsonFetcher } from './useJsonFetcher';
+import { useUnifiedData } from './useUnifiedData';
 
 export const useSneaakers = () => {
-  const { data: sneaakers, loading, error } = useJsonFetcher('https://xagdiwboezbkbxfyzebq.supabase.co/storage/v1/object/public/json/data/sneaakersv2.json');
+  const { data, loading, error } = useUnifiedData();
+
+  const sneaakers = data?.sneakers?.filter(s => s.isFeatured) || [];
 
   return { sneaakers, loading, error };
 };

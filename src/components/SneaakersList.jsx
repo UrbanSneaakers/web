@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSneaakers } from '../hooks/useSneaakers';
 import SneaakerCard from './SneaakerCard';
-import { Navbar } from './Navbar';
 
 const SneaakersList = () => {
   const { sneaakers, loading, error } = useSneaakers();
@@ -12,7 +11,6 @@ const SneaakersList = () => {
 
   return (
     <>
-      <Navbar />
       <div style={{ padding: '40px' }}>
         <h2>Catálogo de Tenis</h2>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px' }}>

@@ -33,7 +33,7 @@ const SneaakerDetail = () => {
   return (
     <div style={{ padding: '40px', textAlign: 'center' }}>
       <h2>Detalle de {sneaker.name}</h2>
-      <img src={sneaker.imageUrlString} alt={sneaker.name} style={{ width: '300px', height: '300px', objectFit: 'cover', marginBottom: '20px' }} />
+      <img src={sneaker.imageUrlString} alt={sneaker.name} style={{ width: '300px', height: '300px', objectFit: 'contain', marginBottom: '20px' }} />
       <p>Marca: {sneaker.brand}</p>
       <p>Precio: ${sneaker.price}</p>
       {sneaker.description && <p>{sneaker.description}</p>}

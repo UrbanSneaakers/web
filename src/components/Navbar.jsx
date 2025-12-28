@@ -1,13 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
-import useMenuData from '../hooks/useMenuData';
+import { useNavItems } from '../hooks/useNavItems';
+import { useDropdownMenu } from '../hooks/useDropdownMenu';
 import DropdownMenu from './DropdownMenu';
 import { useNavbarViewModel } from '../viewModels/NavbarViewModel';
 
 import '../styles/Navbar.css';
 
 export const Navbar = () => {
-  const { menu, loading, error } = useMenuData();
+  const { items: navItems, loading: navLoading, error: navError } = useNavItems();
   const navigate = useNavigate();
   const {
     hoveredItem,
@@ -17,8 +18,11 @@ export const Navbar = () => {
     handleDropdownMouseLeave,
   } = useNavbarViewModel();
 
-  const handleCategoryClick = (category) => {
-    navigate(`/categoria/${category}`);
+  // Cargar dropdown solo cuando hay item hovereado
+  const { dropdown, loading: dropdownLoading, error: dropdownError } = useDropdownMenu(hoveredItem);
+
+  const handleItemClick = (slug) => {
+    navigate(`/categoria/${slug}`);
   };
 
   return (
@@ -26,20 +30,20 @@ export const Navbar = () => {
       <div className="navbar-logo">👟👟</div>
 
       <ul className="navbar-menu">
-        {loading ? (
+        {navLoading ? (
           <li className="navbar-item">Cargando...</li>
-        ) : error ? (
-          <li className="navbar-item">Error cargando menú: {error.message}</li>
-        ) : menu ? (
-          Object.keys(menu).map((item) => (
+        ) : navError ? (
+          <li className="navbar-item">Error cargando menú</li>
+        ) : navItems && Array.isArray(navItems) && navItems.length > 0 ? (
+          navItems.map((item) => (
             <li
-              key={item}
+              key={item.slug}
               className="navbar-item"
-              onMouseEnter={() => handleItemMouseEnter(item)}
+              onMouseEnter={() => handleItemMouseEnter(item.slug)}
               onMouseLeave={handleItemMouseLeave}
             >
-              <span className="navbar-label" onClick={() => handleCategoryClick(item)} style={{ cursor: 'pointer' }}>
-                {item}
+              <span className="navbar-label" onClick={() => handleItemClick(item.slug)} style={{ cursor: 'pointer' }}>
+                {item.label}
               </span>
             </li>
           ))
@@ -49,11 +53,13 @@ export const Navbar = () => {
       </ul>
 
       <DropdownMenu
-        items={menu && menu[hoveredItem] ? menu[hoveredItem] : {}}
+        items={dropdown || {}}
         visible={!!hoveredItem}
         onMouseEnter={handleDropdownMouseEnter}
         onMouseLeave={handleDropdownMouseLeave}
         category={hoveredItem}
+        loading={dropdownLoading}
+        error={dropdownError}
       />
 
       <div className="navbar-icons">🔍 ❤️ 🛒</div>

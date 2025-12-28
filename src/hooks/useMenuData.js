@@ -1,10 +1,20 @@
 // hooks/useMenuData.js
-import { useUnifiedData } from './useUnifiedData';
+// DEPRECADO: Usa useNavItems() y useDropdownMenu(slug) en su lugar
+import { useNavItems } from './useNavItems';
 
 const useMenuData = () => {
-  const { data, loading, error } = useUnifiedData();
+  // Para mantener compatibilidad, convertimos nav items al formato anterior
+  const { items, loading, error } = useNavItems();
 
-  return { menu: data || {}, loading, error };
+  // Convierte array de items a objeto { slug: label }
+  const menu = {};
+  if (items) {
+    items.forEach((item) => {
+      menu[item.slug] = item.label;
+    });
+  }
+
+  return { menu, loading, error };
 };
 
 export default useMenuData;

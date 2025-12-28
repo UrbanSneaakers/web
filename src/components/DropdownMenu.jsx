@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router';
 import '../styles/DropdownMenu.css';
 
-const DropdownMenu = ({ items, onMouseEnter, onMouseLeave, visible, category }) => {
+const DropdownMenu = ({ items, onMouseEnter, onMouseLeave, visible, category, loading, error }) => {
   const navigate = useNavigate();
 
   const handleBrandClick = (brand) => {
@@ -20,18 +20,24 @@ const DropdownMenu = ({ items, onMouseEnter, onMouseLeave, visible, category }) 
       onMouseLeave={onMouseLeave}
     >
       <div className="dropdown-wrapper">
-        {Object.entries(items).map(([brand, models]) => (
-          <div key={brand} className="dropdown-section">
-            <div className="dropdown-title" onClick={() => handleBrandClick(brand)} style={{ cursor: 'pointer' }}>
-              {brand}
-            </div>
-            {models.map((model) => (
-              <div key={model.id} className="dropdown-item" onClick={() => handleModelClick(model.id)} style={{ cursor: 'pointer' }}>
-                {model.name}
+        {loading && <p>Cargando...</p>}
+        {error && <p>Error cargando dropdown: {error.message || String(error)}</p>}
+        {!loading && !error && items && Object.keys(items).length > 0 ? (
+          Object.entries(items).map(([brand, models]) => (
+            <div key={brand} className="dropdown-section">
+              <div className="dropdown-title" onClick={() => handleBrandClick(brand)} style={{ cursor: 'pointer' }}>
+                {brand}
               </div>
-            ))}
-          </div>
-        ))}
+              {Array.isArray(models) && models.map((model) => (
+                <div key={model.id} className="dropdown-item" onClick={() => handleModelClick(model.id)} style={{ cursor: 'pointer' }}>
+                  {model.name}
+                </div>
+              ))}
+            </div>
+          ))
+        ) : (
+          !loading && !error && <p>No hay productos disponibles</p>
+        )}
       </div>
     </div>
   );

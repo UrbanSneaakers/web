@@ -26,7 +26,7 @@ const SneaakerCard = ({ sneaker }) => {
         cursor: 'pointer'
       }}
     >
-      <img src={sneaker.imageUrlString} alt={sneaker.name} style={{ width: '100%', height: '200px', objectFit: 'cover', marginBottom: '16px' }} />
+      <img src={sneaker.imageUrlString} alt={sneaker.name} style={{ width: '100%', height: '200px', objectFit: 'contain', marginBottom: '16px' }} />
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
         <h3 style={{ margin: '8px 0', fontSize: '18px', color: 'black' }}>{sneaker.name}</h3>
         <p style={{ margin: '4px 0', fontSize: '14px', color: 'black' }}>Marca: {sneaker.brand}</p>

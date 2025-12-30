@@ -4,6 +4,7 @@ import { useNavItems } from '../hooks/useNavItems';
 import { useDropdownMenu } from '../hooks/useDropdownMenu';
 import DropdownMenu from './DropdownMenu';
 import { useNavbarViewModel } from '../viewModels/NavbarViewModel';
+import RemoteImage from "./RemoteImage";
 
 import '../styles/Navbar.css';
 
@@ -25,9 +26,20 @@ export const Navbar = () => {
     navigate(`/categoria/${slug}`);
   };
 
+  const logoUrl = "https://64.media.tumblr.com/4654165fa2c874431c3a64810cc52935/3dbd1fe350877db0-2e/s640x960/c2427ee4fe2e74ea1d1bfa88c852510db1052596.pnj"; // URL de la imagen del logo
+
   return (
     <nav className="navbar">
-      <div className="navbar-logo">👟👟</div>
+      <div className="navbar-logo" onClick={() => navigate("/")}>
+        <RemoteImage
+          src={logoUrl}
+          alt="Logo"
+          height={48}                
+          loadingFallback={<div style={{ width: 140, height: 40 }} />}
+          fallback={<div style={{ width: 140, height: 40 }}>👟</div>}
+          style={{ width: "auto" }}   // mantiene proporción
+        />
+      </div>
 
       <ul className="navbar-menu">
         {navLoading ? (
